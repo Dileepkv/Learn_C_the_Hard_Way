@@ -16,7 +16,7 @@ bool anagram_check(char * str1,char * str2){
     int size = strlen(str1);
     quickSort(str1,0,size-1);
     quickSort(str2,0,size-1);
-    printf(" %s,%s\n",str1,str2);
+    printf("%s %s\n",str1,str2);
     return(*str1 == *str2);
 }
 
