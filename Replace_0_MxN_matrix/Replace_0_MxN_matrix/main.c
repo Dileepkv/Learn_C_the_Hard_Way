@@ -32,8 +32,8 @@ int main(int argc, const char * argv[]) {
     int arr[4][3] = {
         {2,8,0},
         {4,5,6},
-        {1,0,7},
-        {8,3,5}
+        {1,6,7},
+        {0,3,5}
         
     };
     int row = sizeof(arr) / sizeof(arr[0]);
@@ -50,8 +50,6 @@ int main(int argc, const char * argv[]) {
                 is_zero[i][j]=1;
         }
     }
-    print_array(row,col,is_zero);
-    int r=0,c=0;
     
     for(int r=0; r < row; r++){
         for(int c=0; c < col ;c++){
