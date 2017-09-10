@@ -35,6 +35,7 @@ void print_list(struct Node *list){
     }
     printf("NULL\n");
 }
+
 int main(int argc, const char * argv[]) {
     struct Node* head, *temp;
     insert(&head,1);
