@@ -8,11 +8,16 @@
 //
 
 #include <stdio.h>
+#include <ctype.h> 
 
 int main(int argc, const char * argv[]) {
     char array[20];
     printf("Enter the string:");
     fgets(array, 20,stdin);
-    printf("%s",array);
+    int i=0;
+    while(array[i]){
+        printf("%c",toupper(array[i]));
+        i++;
+    }
     return 0;
 }
