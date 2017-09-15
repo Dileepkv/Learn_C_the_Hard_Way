@@ -11,7 +11,26 @@ struct Node{
     int value;
     struct Node* next;
 };
-
+/* Function to get the nth node from the last of a linked list*/
+int findNthFromLast(struct Node* head, int n)
+{
+    int len = 0, i;
+    struct Node *temp = head;
+    //count the number of nodes in Linked List
+    while (temp != NULL){
+        temp = temp->next;
+        len++;
+    }
+    // check if value of n is not more than length of the linked list
+    if (len < n )
+        return NULL;
+    temp = head;
+    
+    //get the (n-len+1)th node from the begining
+    for (i = 1; i < len-n+1; i++)
+        temp = temp->next;
+    return temp->value;
+}
 struct Node * findNToLastNode(struct Node *head, int N ){
     struct Node *current, *behind;
     current = head;
@@ -37,15 +56,24 @@ void insert(struct Node** node, int new_value){
 }
 int main(int argc, const char * argv[]) {
     struct Node* head = NULL;
-    insert(&head,1);
-    insert(&head,2);
-    insert(&head,3);
-    insert(&head,4);
-    struct Node* Nth = findNToLastNode(head, 2);
+    insert(&head,21);
+    insert(&head,58);
+    insert(&head,31);
+    insert(&head,45);
+    insert(&head,80);
+    insert(&head,13);
+    insert(&head,63);
+    insert(&head,98);
+    int nth = 1;
+    struct Node* Nth = findNToLastNode(head, nth);
+    printf("\n%d-th to last\n",nth);
+
     while(Nth!=NULL){
         printf("%d->",Nth->value);
         Nth = Nth->next;
     }
+    
+    printf("\n%d-th from last is %d\n",nth,findNthFromLast(head,nth));
     return 0;
 }
 
