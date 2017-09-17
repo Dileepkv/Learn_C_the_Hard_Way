@@ -79,6 +79,14 @@ int maxDepth(struct node* node) {
         else return(rDepth+1);
     } 
 }
+int minValue(struct node* node) {
+    struct node* current = node;
+    // loop down to find the leftmost leaf
+    while (current->left != NULL) {
+        current = current->left;
+    }
+    return(current->data);
+}
 
 int main(int argc, const char * argv[]) {
     struct node* root =NULL;
@@ -93,6 +101,6 @@ int main(int argc, const char * argv[]) {
     printf("Search status of %d = %d\n",20,search(root,20));
     printf("Number of nodes = %d\n",size(root));
     printf("Max Depth of tree = %d\n",maxDepth(root));
-
+    printf("Min Value of tree = %d\n",minValue(root));
     return 0;
 }
