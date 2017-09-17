@@ -138,6 +138,20 @@ void print_paths(struct node* node, int path[], int pathLen){
     }
 }
 
+void mirror(struct node* node) {
+    if (node==NULL)  return;
+    else {
+        // do the subtrees
+        mirror(node->left);
+        mirror(node->right);
+        
+        struct node * temp;
+        temp = node->left;
+        node->left =  node->right;
+        node->right = temp;
+    }
+
+}
 int main(int argc, const char * argv[]) {
     struct node* root =NULL;
     
@@ -163,5 +177,8 @@ int main(int argc, const char * argv[]) {
     printf("\n\nRoot to Leaf Paths: \n");
     int path[maxDepth(root)];
     print_paths(root, path, 0);
+    printf("\n\nMirror of the current tree: \n");
+    mirror(root);
+    print_postorder(root);
     return 0;
 }
