@@ -95,7 +95,6 @@ void print_inorder(struct node* node) {
         print_inorder(node->right);
     }
 }
-
 void print_postorder(struct node* node) {
     if (node==NULL)  return;
     else {
@@ -105,22 +104,47 @@ void print_postorder(struct node* node) {
     }
 }
 
+int hasPathSum(struct node* node, int sum) {
+    // return true if we run out of tree and sum==0
+    if (node == NULL) {
+        return(sum == 0);
+    }
+    else {
+        // otherwise check both subtrees
+        int subSum = sum - node->data;
+        return(hasPathSum(node->left, subSum) ||
+               hasPathSum(node->right, subSum));
+    } 
+}
 int main(int argc, const char * argv[]) {
     struct node* root =NULL;
-    root = newNode(10);
+    /*root = newNode(10);
     root->left = newNode(7);
     root->right = newNode(15);
     root->left->left = newNode(3);
     root->left->right = newNode(8);
     root->right->left = newNode(12);
     root->right->right = newNode(20);
-    root->right->right->right = newNode(35);
+    root->right->right->right = newNode(35);*/
+    
+    root = newNode(5);
+    root->left = newNode(2);
+    root->right = newNode(7);
+    root->left->left = newNode(1);
+    root->left->right = newNode(3);
+    root->right->left = newNode(6);
+    root->right->right = newNode(8);
+    root->right->right->right = newNode(10);
+    
+   
     printf("Search status of %d = %d\n",20,search(root,20));
     printf("Number of nodes = %d\n",size(root));
     printf("Max Depth of tree = %d\n",maxDepth(root));
     printf("Min Value of tree = %d\n",minValue(root));
+    printf("\nIn Order:\n");
     print_inorder(root);//increasing order
-    printf("\n");
+    printf("\n\nPost Order: \n");
     print_postorder(root); //bottom-up level traversal
+    printf("\n\nHas Root to Leaf Sum: %d\n",hasPathSum(root,20)); //10+15+12
     return 0;
 }
