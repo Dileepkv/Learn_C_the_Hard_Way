@@ -88,6 +88,23 @@ int minValue(struct node* node) {
     return(current->data);
 }
 
+void print_inorder(struct node* node) {
+    if (node!=NULL) {
+        print_inorder(node->left);
+        printf("%d ",node->data);
+        print_inorder(node->right);
+    }
+}
+
+void print_postorder(struct node* node) {
+    if (node==NULL)  return;
+    else {
+        print_postorder(node->left);
+        print_postorder(node->right);
+        printf("%d ",node->data);
+    }
+}
+
 int main(int argc, const char * argv[]) {
     struct node* root =NULL;
     root = newNode(10);
@@ -102,5 +119,8 @@ int main(int argc, const char * argv[]) {
     printf("Number of nodes = %d\n",size(root));
     printf("Max Depth of tree = %d\n",maxDepth(root));
     printf("Min Value of tree = %d\n",minValue(root));
+    print_inorder(root);//increasing order
+    printf("\n");
+    print_postorder(root); //bottom-up level traversal
     return 0;
 }
