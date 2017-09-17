@@ -79,6 +79,7 @@ int maxDepth(struct node* node) {
         else return(rDepth+1);
     } 
 }
+
 int main(int argc, const char * argv[]) {
     struct node* root =NULL;
     root = newNode(10);
