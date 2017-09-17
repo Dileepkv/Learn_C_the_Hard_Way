@@ -150,7 +150,18 @@ void mirror(struct node* node) {
         node->left =  node->right;
         node->right = temp;
     }
-
+}
+void doubleTree(struct node* node) {
+    if (node==NULL)  return;
+    else {
+        
+        doubleTree(node->left);
+        doubleTree(node->right);
+        struct node* temp;
+        temp = node->left;
+        node->left = newNode(node->data);
+        node->left->left = temp;
+    }
 }
 int main(int argc, const char * argv[]) {
     struct node* root =NULL;
@@ -175,10 +186,17 @@ int main(int argc, const char * argv[]) {
     print_postorder(root); //bottom-up level traversal
     printf("\n\nHas Root to Leaf Sum: %d\n",hasPathSum(root,37)); //10+15+12
     printf("\n\nRoot to Leaf Paths: \n");
-    int path[maxDepth(root)];
+    int path[size(root)];
     print_paths(root, path, 0);
-    printf("\n\nMirror of the current tree: \n");
-    mirror(root);
-    print_postorder(root);
+    //printf("\n\nMirror of the current tree: \n");
+    //mirror(root);
+    //print_postorder(root);
+    
+    printf("\n\nDouble Tree: \n");
+    doubleTree(root);
+    printf("Number of nodes = %d\n",size(root));
+    printf("Root to Leaf Paths in Double Tree: \n");
+    path[size(root)];
+    print_paths(root, path, 0);
     return 0;
 }
