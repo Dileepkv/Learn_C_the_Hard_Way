@@ -66,6 +66,19 @@ int size(struct node* node) {
         return(size(node->left) + 1 + size(node->right));
     }
 }
+int maxDepth(struct node* node) {
+    if (node==NULL) {
+        return(0);
+    }
+    else {
+        // compute the depth of each subtree
+        int lDepth = maxDepth(node->left);
+        int rDepth = maxDepth(node->right);
+        // use the larger one
+        if (lDepth > rDepth) return(lDepth+1);
+        else return(rDepth+1);
+    } 
+}
 int main(int argc, const char * argv[]) {
     struct node* root =NULL;
     root = newNode(10);
@@ -75,8 +88,10 @@ int main(int argc, const char * argv[]) {
     root->left->right = newNode(8);
     root->right->left = newNode(12);
     root->right->right = newNode(20);
-    printf("%d\n",search(root,20));
-    printf("%d\n",size(root));
+    root->right->right->right = newNode(35);
+    printf("Search status of %d = %d\n",20,search(root,20));
+    printf("Number of nodes = %d\n",size(root));
+    printf("Max Depth of tree = %d\n",maxDepth(root));
 
     return 0;
 }
