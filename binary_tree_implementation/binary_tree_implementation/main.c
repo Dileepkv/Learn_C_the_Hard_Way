@@ -116,25 +116,39 @@ int hasPathSum(struct node* node, int sum) {
                hasPathSum(node->right, subSum));
     } 
 }
+//print root to leaf paths
+void print_paths(struct node* node, int path[], int pathLen){
+    if (node==NULL) return;
+    
+    // append this node to the path array
+    path[pathLen] = node->data;
+    pathLen++;
+    
+    // it's a leaf, so print the path that led to here
+    if (node->left==NULL && node->right==NULL) {
+        for (int i=0; i<pathLen; i++) {
+            printf("%d ",path[i]);
+        }
+        printf("\n");
+    }
+    else {
+        // otherwise try both subtrees
+        print_paths(node->left, path, pathLen);
+        print_paths(node->right, path, pathLen);
+    }
+}
+
 int main(int argc, const char * argv[]) {
     struct node* root =NULL;
-    /*root = newNode(10);
+    
+    root = newNode(10);
     root->left = newNode(7);
     root->right = newNode(15);
     root->left->left = newNode(3);
     root->left->right = newNode(8);
     root->right->left = newNode(12);
     root->right->right = newNode(20);
-    root->right->right->right = newNode(35);*/
-    
-    root = newNode(5);
-    root->left = newNode(2);
-    root->right = newNode(7);
-    root->left->left = newNode(1);
-    root->left->right = newNode(3);
-    root->right->left = newNode(6);
-    root->right->right = newNode(8);
-    root->right->right->right = newNode(10);
+    root->right->right->right = newNode(35);
     
    
     printf("Search status of %d = %d\n",20,search(root,20));
@@ -145,6 +159,9 @@ int main(int argc, const char * argv[]) {
     print_inorder(root);//increasing order
     printf("\n\nPost Order: \n");
     print_postorder(root); //bottom-up level traversal
-    printf("\n\nHas Root to Leaf Sum: %d\n",hasPathSum(root,20)); //10+15+12
+    printf("\n\nHas Root to Leaf Sum: %d\n",hasPathSum(root,37)); //10+15+12
+    printf("\n\nRoot to Leaf Paths: \n");
+    int path[maxDepth(root)];
+    print_paths(root, path, 0);
     return 0;
 }
