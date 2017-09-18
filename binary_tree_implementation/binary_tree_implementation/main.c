@@ -154,7 +154,6 @@ void mirror(struct node* node) {
 void doubleTree(struct node* node) {
     if (node==NULL)  return;
     else {
-        
         doubleTree(node->left);
         doubleTree(node->right);
         struct node* temp;
@@ -165,7 +164,6 @@ void doubleTree(struct node* node) {
 }
 int main(int argc, const char * argv[]) {
     struct node* root =NULL;
-    
     root = newNode(10);
     root->left = newNode(7);
     root->right = newNode(15);
@@ -174,7 +172,6 @@ int main(int argc, const char * argv[]) {
     root->right->left = newNode(12);
     root->right->right = newNode(20);
     root->right->right->right = newNode(35);
-    
    
     printf("Search status of %d = %d\n",20,search(root,20));
     printf("Number of nodes = %d\n",size(root));
@@ -188,10 +185,14 @@ int main(int argc, const char * argv[]) {
     printf("\n\nRoot to Leaf Paths: \n");
     int path[size(root)];
     print_paths(root, path, 0);
-    //printf("\n\nMirror of the current tree: \n");
-    //mirror(root);
-    //print_postorder(root);
+    printf("\n\nMirror of the current tree: \n");
+    mirror(root);
+    print_postorder(root);
     
+    printf("\n\nMirror of the current tree: \n");
+    mirror(root); // To reorder
+    print_postorder(root);
+
     printf("\n\nDouble Tree: \n");
     doubleTree(root);
     printf("Number of nodes = %d\n",size(root));
