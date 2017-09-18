@@ -10,10 +10,12 @@
 #include <stdio.h>
 #include <ctype.h> 
 void change_to_upper(char * arr){
-    int i=0;
-    while(arr[i]){
-        arr[i] = toupper(arr[i]);
-        i++;
+    //int i=0;
+    while(*arr){
+        *arr = toupper(*arr);
+        if(*arr == ' ')
+            *arr = '_';
+        arr++;
     }
 }
 
