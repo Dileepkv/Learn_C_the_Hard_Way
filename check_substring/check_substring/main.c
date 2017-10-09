@@ -15,7 +15,7 @@ int isSubstring(char *str1, char *str2)
         return 0;
     int size = strlen(str1);
     // Create a temp string with value str1.str1
-    char *temp   = (char *)malloc(sizeof(char)*(size*2 + 1));
+    char *temp   = (char *)malloc(sizeof(char) * (size*2));
     temp = strcat(temp,str1);
     temp = strcat(temp,str1); //wat'erbottlewat'erbottle
     

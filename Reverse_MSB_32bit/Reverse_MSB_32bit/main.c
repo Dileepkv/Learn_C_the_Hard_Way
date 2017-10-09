@@ -14,8 +14,7 @@ unsigned int encodeBits(unsigned int num)
     unsigned int NO_OF_BITS = sizeof(num) * 8;
     unsigned int encode_num = 0, i, temp1,temp2;
     
-    for (i = 0; i < NO_OF_BITS/2; i++)
-    {
+    for (i = 0; i < NO_OF_BITS/2; i++){
         encode_num |= (num & (1 << i));
     }
     

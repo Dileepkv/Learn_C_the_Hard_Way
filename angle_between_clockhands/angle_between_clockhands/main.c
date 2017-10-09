@@ -22,7 +22,7 @@ float find_angle(int hr,int min){
     
     if (hr == 12) hr = 0;
     if (min == 60) min = 0;
-    float hr_angle = 0.5 * (hr*60 + min);
+    float hr_angle = 0.5 * (hr*60 + min); //0.5* (3*60+15)
     float min_angle = 6*min;
     
     float angle = abs(hr_angle - min_angle);
@@ -30,7 +30,7 @@ float find_angle(int hr,int min){
     return angle;
 }
 int main(int argc, const char * argv[]) {
-    printf("%0.2f\n",find_angle(1,10));
+    printf("%0.2f\n",find_angle(3,10));
     printf("%0.2f\n",find_angle(12,30));
     printf("%0.2f\n",find_angle(1,20));
     printf("%0.2f\n",find_angle(10,30));

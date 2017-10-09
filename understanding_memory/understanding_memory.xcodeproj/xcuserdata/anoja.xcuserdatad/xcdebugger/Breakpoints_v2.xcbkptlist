@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "understanding_memory/main.c"
-            timestampString = "527395127.425794"
+            timestampString = "528092681.755496"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>

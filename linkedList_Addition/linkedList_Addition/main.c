@@ -73,5 +73,7 @@ int main(int argc, const char * argv[]) {
     result = add(head1,head2);
     printf("Resultant:\n");
     print_list(result);
+    
+    
     return 0;
 }

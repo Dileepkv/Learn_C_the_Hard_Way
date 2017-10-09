@@ -19,7 +19,8 @@ unsigned int convert_endianness(unsigned int x)
 
 int main(int argc, const char * argv[]) {
     unsigned int i = 1;
-    if ((char*)&i)
+    char *c = (char*)&i;
+    if (*c)
         printf("Little endian\n");
     else
         printf("Big endian\n");

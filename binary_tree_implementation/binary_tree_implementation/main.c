@@ -185,6 +185,7 @@ int main(int argc, const char * argv[]) {
     printf("\n\nRoot to Leaf Paths: \n");
     int path[size(root)];
     print_paths(root, path, 0);
+    
     printf("\n\nMirror of the current tree: \n");
     mirror(root);
     print_postorder(root);
