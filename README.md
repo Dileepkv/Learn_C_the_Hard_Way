@@ -1,5 +1,11 @@
 # This repository contains algorithms and codes for commonly asked questions in technical interviews
 
+  *Method to decide if two strings are anagrams or not
+  *Convert Big endian to little endian
+  *HashTable
+  
+  
+  
 ## Searching and Sorting
 
   1. Binary Search
