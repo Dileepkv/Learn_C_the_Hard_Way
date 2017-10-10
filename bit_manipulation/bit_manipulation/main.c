@@ -47,6 +47,8 @@ void string_to_binary(){
  Input: N = 10000000000, M = 10101, i = 2, j = 6
  Output: N = 10001010100
  */
+// Another method in next repo
+
 void make_substring(){
     int N = 1024; //10000000000
     int M = 21; //10101
